@@ -1,0 +1,5 @@
+package com.rentalproperty.servlet;
+import com.rentalproperty.model.Property; import com.rentalproperty.util.DBConnection; import javax.servlet.*; import javax.servlet.annotation.WebServlet; import javax.servlet.http.*; import java.io.*; import java.sql.*;
+@WebServlet("/propertyDetails") public class PropertyDetailsServlet extends HttpServlet {
+ protected void doGet(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException{Property prop=null;try(Connection c=DBConnection.getConnection();PreparedStatement p=c.prepareStatement("SELECT * FROM properties WHERE property_id=?")){p.setInt(1,Integer.parseInt(req.getParameter("id")));ResultSet r=p.executeQuery();if(r.next())prop=new Property(r.getInt("property_id"),r.getString("title"),r.getString("location"),r.getString("type"),r.getDouble("rent"),r.getInt("bedrooms"),r.getString("description"),r.getString("status"),r.getString("image")));}catch(Exception e){throw new ServletException(e);}req.setAttribute("property",prop);req.getRequestDispatcher("propertyDetails.jsp").forward(req,res);}
+}

@@ -1,0 +1,4 @@
+package com.rentalproperty.model;
+public class Property { private int id,bedrooms; private String title,location,type,description,status,image; private double rent;
+ public Property(int id,String title,String location,String type,double rent,int bedrooms,String description,String status,String image){this.id=id;this.title=title;this.location=location;this.type=type;this.rent=rent;this.bedrooms=bedrooms;this.description=description;this.status=status;this.image=image;}
+ public int getId(){return id;} public int getBedrooms(){return bedrooms;} public String getTitle(){return title;} public String getLocation(){return location;} public String getType(){return type;} public double getRent(){return rent;} public String getDescription(){return description;} public String getStatus(){return status;} public String getImage(){return image;}}
